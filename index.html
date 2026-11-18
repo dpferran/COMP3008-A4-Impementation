@@ -6,7 +6,22 @@
     <title>Fragrantica</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="topnav">
+        <h2>Fragrantica</h2>
+      </div>
+      <div id="home-container">
+        <h1>Find a Fragrance</h1>
+        <p>Search by perfume name or brand. Results show the concentration and release year.</p>
+        <div>
+          <input id="searchbar"
+                onkeyup="search_product()" 
+                type="text" name="search" 
+                placeholder="Search perfumes or brands..">
+          <button id="search-button">Search</button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
