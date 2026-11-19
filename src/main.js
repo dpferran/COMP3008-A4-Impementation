@@ -22,10 +22,20 @@ function search_product() {
   });
 }
 
+function go_to_results() {
+    const search_input = document.getElementById("searchbar").value.trim();
+
+    if (search_input === "") {
+        return;
+    }
+
+    window.location.href = `/search-results.html?query=${encodeURIComponent(search_input)}`;
+}
+
 document.getElementById("search-button").addEventListener("click", search_product);
 document.getElementById("searchbar").addEventListener("input", search_product);
 document.getElementById("searchbar").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-        // go to the search results page
+        go_to_results();
     }
 });
