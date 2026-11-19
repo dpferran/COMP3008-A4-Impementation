@@ -1,5 +1,6 @@
 import './style.css';
 import { products } from "./products.js";
+import { go_to_results, search_product } from "./main.js"
 
 const params = new URLSearchParams(window.location.search);
 const search_query = params.get("query") || "";
@@ -44,3 +45,16 @@ function display_product(product, container) {
 
     container.appendChild(product_element);
 }
+
+//Event Listeners
+document.getElementById("search-button").addEventListener("click", go_to_results);
+document.getElementById("searchbar").addEventListener("input", search_product);
+document.getElementById("searchbar").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        go_to_results();
+    }
+});
+
+document.getElementById("revise-search").addEventListener("click", function() {
+    document.getElementById("no-results-popup").style.display = "none";
+});

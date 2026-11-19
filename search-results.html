@@ -9,9 +9,20 @@
     <div id="app">
         <div class="topnav">
             <h2>Fragrantica</h2>
+
+            <div id="nav-search-container">
+                <div id="nav-search">
+                    <input id="searchbar"
+                        type="text"
+                        name="search"
+                        placeholder="Search perfumes or brands...">
+
+                    <button id="search-button">Search</button>
+                </div>
+
+                <div id="results"></div>
+            </div>
         </div>
-        
-        <a href="/" id="back-button">< Back to search</a>
 
         <div id="search-results-container">
             <h1 id="results-heading"></h1>
@@ -23,6 +34,13 @@
             <h2>Other Matches</h2>
             <div id="other-results"></div>
         </div>
+        <div id="no-results-popup" class="popup-overlay">
+        <div class="popup">
+            <h2>Fragrance Not Found</h2>
+            <p id="popup-message"></p>
+            <button id="revise-search">Revise Search</button>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="/src/search.js"></script>
