@@ -1,6 +1,12 @@
 import './style.css'
 import { products } from "./products.js"
 
+export function matches_search(product, search_input) {
+    const product_text = `${product.brand} ${product.full_name}`.toLowerCase();
+
+    return search_input.toLowerCase().split(" ").every(word => product_text.includes(word));
+}
+
 export function search_product() {
   const search_input = document.getElementById("searchbar").value.trim().toLowerCase();
   const results_container = document.getElementById("results");
@@ -9,8 +15,7 @@ export function search_product() {
   
   const results = products.filter(product =>
       search_input === "" ||
-      product.name.toLowerCase().includes(search_input) ||
-      product.brand.toLowerCase().includes(search_input)
+      matches_search(product, search_input)
   ).slice(0, 5);
 
   results.forEach(product => {
@@ -31,8 +36,7 @@ export function go_to_results() {
     }
 
     const results = products.filter(product =>
-        product.name.toLowerCase().includes(search_input.toLowerCase()) ||
-        product.brand.toLowerCase().includes(search_input.toLowerCase())
+        matches_search(product, search_input)
     );
 
     if (results.length === 0) {

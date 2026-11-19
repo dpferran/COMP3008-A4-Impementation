@@ -1,6 +1,6 @@
 import './style.css';
 import { products } from "./products.js";
-import { go_to_results, search_product } from "./main.js"
+import { go_to_results, search_product, matches_search } from "./main.js"
 
 const params = new URLSearchParams(window.location.search);
 const search_query = params.get("query") || "";
@@ -10,8 +10,7 @@ document.getElementById("results-heading").textContent =
 
 
 const results = products.filter(product =>
-    product.name.toLowerCase().includes(search_query.toLowerCase()) ||
-    product.brand.toLowerCase().includes(search_query.toLowerCase())
+    matches_search(product, search_query)
 );
 
 document.getElementById("results-desc").textContent =
