@@ -32,7 +32,7 @@ function go_to_results() {
     window.location.href = `/search-results.html?query=${encodeURIComponent(search_input)}`;
 }
 
-document.getElementById("search-button").addEventListener("click", search_product);
+document.getElementById("search-button").addEventListener("click", go_to_results);
 document.getElementById("searchbar").addEventListener("input", search_product);
 document.getElementById("searchbar").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
