@@ -16,7 +16,7 @@ export function search_product() {
   results.forEach(product => {
       results_container.innerHTML += `
           <div class="product">
-            <a href="/product.html?id=${product.name}">${product.name}</a>
+            <a href="/product.html?id=${product.id}">${product.name}</a>
             <p>${product.brand} * ${product.concentration} * ${product.year}</p>
           </div>
       `;

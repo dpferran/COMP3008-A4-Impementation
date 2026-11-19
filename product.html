@@ -9,14 +9,109 @@
     <div id="app">
         <div class="topnav">
             <h2>Fragrantica</h2>
+
+            <div id="nav-search-container">
+                <div id="nav-search">
+                    <input id="searchbar"
+                        type="text"
+                        name="search"
+                        placeholder="Search perfumes or brands...">
+
+                    <button id="search-button">Search</button>
+                </div>
+
+                <div id="results"></div>
+            </div>
         </div>
 
         <div id="product-container">
-            <h1 id="product-name"></h1>
-            <h2 id="product-brand"></h2>
+            <a id="back-link" href="/">← Back to results</a>
 
-            <p id="product-concentration"></p>
-            <p id="product-year"></p>
+            <div id="product-not-found">
+                <h1>Fragrance Not Found</h1>
+                <p>We couldn't find this fragrance. The link may be wrong or out of date. Try searching for it again.</p>
+                <a id="not-found-button" href="/">Back to search</a>
+            </div>
+
+            <div id="product-top">
+                <div id="product-image"></div>
+
+                <div id="product-info">
+                    <p id="product-brand"></p>
+                    <h1 id="product-name"></h1>
+                    <h2 id="product-edition-line">
+                        <span id="product-concentration"></span> · <span id="product-year"></span>
+                        <span class="info-term" tabindex="0" role="button" aria-label="About concentration" aria-describedby="tip-concentration">ⓘ
+                            <span class="tooltip" role="tooltip" id="tip-concentration">Eau de Toilette is lighter than Eau de Parfum or Parfum. One perfume name can come in several concentrations and years, so check both.</span>
+                        </span>
+                    </h2>
+                    <span id="product-gender" class="chip"></span>
+                    <p id="product-description"></p>
+
+                    <p id="edition-label">Switch edition:</p>
+                    <div id="edition-row"></div>
+                </div>
+            </div>
+
+            <div id="product-details">
+                <div class="detail-card">
+                    <h2>Main accords
+                        <span class="info-term" tabindex="0" role="button" aria-label="About accords" aria-describedby="tip-accords">ⓘ
+                            <span class="tooltip" role="tooltip" id="tip-accords">An accord is the overall smell that several ingredients create together, like "fresh spicy" or "citrus". A longer bar means that smell is stronger.</span>
+                        </span>
+                    </h2>
+                    <p class="card-desc">Accords are the main scent types in a perfume. The first three are the strongest and best describe how it smells.</p>
+                    <div id="accords"></div>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Notes
+                        <span class="info-term" tabindex="0" role="button" aria-label="About notes" aria-describedby="tip-notes">ⓘ
+                            <span class="tooltip" role="tooltip" id="tip-notes">Notes are the single ingredients you can smell. Top notes come first, then middle notes, and base notes last the longest.</span>
+                        </span>
+                    </h2>
+
+                    <h3>Top notes</h3>
+                    <p class="card-desc">What you smell first.</p>
+                    <div id="top-notes" class="note-row"></div>
+
+                    <h3>Middle notes</h3>
+                    <p class="card-desc">The main scent after the top notes fade.</p>
+                    <div id="middle-notes" class="note-row"></div>
+
+                    <h3>Base notes</h3>
+                    <p class="card-desc">What lasts the longest.</p>
+                    <div id="base-notes" class="note-row"></div>
+                </div>
+            </div>
+
+            <div id="similar-section">
+                <div id="similar-title-row">
+                    <div>
+                        <h2>Similar fragrances
+                            <span class="info-term" tabindex="0" role="button" aria-label="About similar fragrances" aria-describedby="tip-similar">ⓘ
+                                <span class="tooltip" role="tooltip" id="tip-similar">Fragrances that share notes or accords with this one, or that users say it reminds them of. Each card shows what they share.</span>
+                            </span>
+                        </h2>
+                        <p id="similar-desc" class="card-desc"></p>
+                    </div>
+
+                    <div id="similar-arrows">
+                        <button id="similar-prev" aria-label="Previous similar fragrances">‹</button>
+                        <button id="similar-next" aria-label="Next similar fragrances">›</button>
+                    </div>
+                </div>
+
+                <div id="similar-row"></div>
+            </div>
+        </div>
+
+        <div id="no-results-popup" class="popup-overlay">
+            <div class="popup">
+                <h2>Fragrance Not Found</h2>
+                <p id="popup-message"></p>
+                <button id="revise-search">Revise Search</button>
+            </div>
         </div>
     </div>
 
